@@ -12,7 +12,7 @@ async function fetchProducts() {
   return { list: products };
 }
 
-export default async function Products() {
+export default async function Page() {
   const { list } = await fetchProducts();
   const updatedQuantityList = list["products"]?.map((it) => {
     return {

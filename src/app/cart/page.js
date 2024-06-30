@@ -1,5 +1,5 @@
 import CartItems from "../components/CartItems";
 
-export default function Cart() {
+export default function Page() {
   return <CartItems />;
 }
