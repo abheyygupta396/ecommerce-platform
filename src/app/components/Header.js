@@ -6,7 +6,7 @@ import Link from "next/link";
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { useSelector } from "react-redux";
 import { useDebounce } from "./hooks/useDebouncing";
-import { SearchResultItems } from "./SearchResults";
+import { SearchResults } from "./SearchResults";
 
 //! Main Header component
 const Header = () => {
@@ -86,7 +86,7 @@ const Header = () => {
               <div className="absolute shadow-xl mt-1 w-[550px] bg-white rounded-md z-20 top-10 right-20 max-h-80 overflow-y-auto">
                 <ul className="cursor-pointer">
                   {searchResults?.map((result, idx) => (
-                    <SearchResultItems key={idx + result.id} result={result} />
+                    <SearchResults key={idx + result.id} result={result} />
                   ))}
                 </ul>
               </div>

@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
-import { addItem, removeItem } from "../redux/slices/cartSlice";
+import { addItem } from "../redux/slices/cartSlice";
 import toast from "react-hot-toast";
 
 export default function Card({ id, src, title, price, quantity }) {
