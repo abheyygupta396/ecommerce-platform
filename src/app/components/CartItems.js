@@ -7,8 +7,9 @@ import {
   updateItem,
   removeItem,
   emptyCartItems,
+  initializeCart,
 } from "../redux/slices/cartSlice";
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 
 export default function CartItems() {
   const dispatch = useDispatch();
@@ -28,6 +29,11 @@ export default function CartItems() {
     () => calculateTotalPrice(cartItems),
     [cartItems]
   );
+
+  // initialize the cart:
+  useEffect(() => {
+    dispatch(initializeCart());
+  }, []);
 
   return (
     <>

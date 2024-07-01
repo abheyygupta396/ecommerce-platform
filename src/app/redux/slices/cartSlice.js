@@ -8,6 +8,9 @@ const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
+    initializeCart(state, action) {
+      state.items = JSON.parse(localStorage.getItem("cart")) ?? [];
+    },
     addItem(state, action) {
       const existingItem = state.items.find(
         (item) => item.id === action.payload.id
@@ -38,7 +41,12 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addItem, removeItem, updateItem, emptyCartItems } =
-  cartSlice.actions;
+export const {
+  addItem,
+  removeItem,
+  updateItem,
+  emptyCartItems,
+  initializeCart,
+} = cartSlice.actions;
 
 export default cartSlice.reducer;

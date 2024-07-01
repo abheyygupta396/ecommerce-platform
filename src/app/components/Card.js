@@ -1,8 +1,9 @@
 "use client";
 import Image from "next/image";
-import { useDispatch, useSelector } from "react-redux";
-import { addItem } from "../redux/slices/cartSlice";
+import { useDispatch } from "react-redux";
+import { addItem, initializeCart } from "../redux/slices/cartSlice";
 import toast from "react-hot-toast";
+import { useEffect } from "react";
 
 export default function Card({ id, src, title, price, quantity }) {
   const dispatch = useDispatch();
@@ -18,6 +19,10 @@ export default function Card({ id, src, title, price, quantity }) {
     toast.success("Item added to cart!");
   };
 
+  // initialize the cart:
+  useEffect(() => {
+    dispatch(initializeCart());
+  }, []);
   return (
     <>
       <div className="relative m-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
